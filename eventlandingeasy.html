@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event landing</title>
+<style>
+body{
+text-align: center;
+font-family : Arial;
+background-color : lightpink;
+}
+h2{
+color : green;
+}
+input{
+padding : 10px;
+margin : 10px;
+}
+button{
+background-color: red;
+color: white;
+padding: 10px;
+}
+</style>
+</head>
+<body>
+<h2>Credit Card Event</h2>
+<p>Join our event to know about credit card offers</p>
+<p>Date: 22/10/2026</p>
+<button onclick="openform()">Register</button>
+<div id="form" style="display:none;">
+<h2>Registration Form</h2>
+<input type="text" id="name" placeholder="Enter the name: "><br>
+<input type="email" id="email" placeholder="Enter the email: "><br>
+<input type="text" id="card" placeholder="Enter the card no.: "><br>
+<button onclick="submitform()">Submit</button>
+<button onclick="closeform()">Close</button>
+</div>
+<script>
+function openform(){
+document.getElementById("form").style.display="block";
+}
+function closeform(){
+document.getElementById("form").style.display="none";
+}
+function submitform(){
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let card=document.getElementById("card").value;
+if( name=="" || email=="" || card==""){
+alert("Enter all the details!!");
+}
+else{
+let answer=confirm("Registration confirmation");
+if(answer==true){
+alert("Registration successfull");
+closeform();
+}
+else{
+alert("Registration cancelled");
+}
+}}
+</script>
+</body>
+</html>
