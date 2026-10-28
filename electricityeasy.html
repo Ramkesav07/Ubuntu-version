@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Electricity bill</title>
+<style>
+body{
+text-align: center;
+font-family : Arial;
+background-color : lightyellow;
+}
+h1{
+color : red;
+}
+input{
+padding : 10px;
+margin : 10px;
+}
+button{
+background-color: red;
+color: white;
+padding: 10px;
+}
+</style>
+</head>
+<body>
+<h1> Electricity Calculation</h1>
+Enter units:
+<input type="number" id="units" placeholder="Enter the units: "><br><br>
+<button onclick="calculate()">Calculate units</button>
+<h3 id="result"></h3>
+<script>
+function calculate(){
+let units=Number(document.getElementById("units").value);
+let bill;
+if(units<=100)
+bill=units*5;
+else if(units<=200)
+bill=500+(units-100)*7;
+else if(units<=300)
+bill=1200+(units-200)*10;
+else 
+bill=2200+(units-300)*15;
+document.getElementById("result").innerHTML="Total bill is "+bill;
+}
+</script>
+</body>
+</html>
