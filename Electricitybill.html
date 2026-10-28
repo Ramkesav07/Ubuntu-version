@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Bill Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            padding: 30px;
+        }
+
+        .container {
+            width: 650px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+            font-family: Georgia, serif;
+        }
+
+        label {
+            font-size: 18px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+            margin: 10px;
+            border: 2px solid #1565c0;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 11px 20px;
+            background-color: #1565c0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #1565c0;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            border: 1px solid #bbb;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #FAFF9E;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d84315;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Electricity Bill Calculator</h1>
+
+    <label>Enter Units Consumed:</label>
+    <input type="number" id="units" placeholder="Enter units">
+
+    <button onclick="calculateBill()">Calculate Bill</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function calculateBill() {
+
+    let units = Number(document.getElementById("units").value);
+
+    if (units <= 0 || isNaN(units)) {
+        alert("Please enter valid units!");
+        return;
+    }
+
+    let rates = [5, 7, 10, 15];
+    let limits = [100, 100, 100, Infinity];
+
+    let remaining = units;
+    let total = 0;
+    let output = "";
+
+    output += "<div class='result'>";
+    output += "<h2>Bill Details for " + units + " units</h2>";
+
+    output += "<table>";
+    output += "<tr>";
+    output += "<th>Slab</th>";
+    output += "<th>Units</th>";
+    output += "<th>Rate (Rs.)</th>";
+    output += "<th>Cost (Rs.)</th>";
+    output += "</tr>";
+
+    for (let i = 0; i < 4; i++) {
+
+        if (remaining <= 0) {
+            break;
+        }
+
+        let consumed = Math.min(remaining, limits[i]);
+
+        let cost = consumed * rates[i];
+
+        total = total + cost;
+
+        output += "<tr>";
+        output += "<td>" + (i + 1) + "</td>";
+        output += "<td>" + consumed + "</td>";
+        output += "<td>" + rates[i].toFixed(2) + "</td>";
+        output += "<td>" + cost.toFixed(2) + "</td>";
+        output += "</tr>";
+
+        remaining = remaining - consumed;
+    }
+
+    output += "</table>";
+
+    output += "<p class='total'>Total Bill: Rs." 
+           + total.toFixed(2) + "</p>";
+
+    output += "</div>";
+
+    document.getElementById("result").innerHTML = output;
+}
+
+</script>
+
+</body>
+</html>
