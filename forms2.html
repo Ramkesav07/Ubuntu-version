@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Registration Form</title>
+</head>
+<body bgcolor="papayawhip">
+
+<h1 align="center"><i>Student Registration Form</i></h1>
+<hr width=80%>
+<br>
+
+<form>
+
+  <h2><i>Personal Details</i></h2>
+  <hr align="left" width=20%>
+  <br>
+
+  <label for="fullname"><b>Full Name:</b></label><br>
+  <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" size="30"><br><br>
+
+  <label for="email"><b>Email Address:</b></label><br>
+  <input type="email" id="email" name="email" placeholder="Enter your email" size="30"><br><br>
+
+  <label for="password"><b>Create Password:</b></label><br>
+  <input type="password" id="password" name="password" placeholder="Create a password" size="30"><br><br>
+
+  <label for="dob"><b>Date Of Birth:</b></label><br>
+  <input type="date" id="dob" name="dob"><br><br>
+
+  <label><b>Gender:</b></label><br>
+  <input type="radio" id="male" name="gender" value="Male">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="Female">
+  <label for="female">Female</label><br>
+  <input type="radio" id="other" name="gender" value="Other">
+  <label for="other">Other</label><br>
+
+  <h2><i>Academic Information</i></h2>
+  <hr align="left" width=20%>
+  <br>
+
+  <label for="course"><b>Course Interested:</b></label><br>
+  <select id="course" name="course">
+    <option value="">-- Select a course --</option>
+    <option>B.Sc Computer Science</option>
+    <option>B.E Information Technology</option>
+    <option>M.Sc 5 year Integrated Computer Science</option>
+    <option>M.Sc Data Science</option>
+    <option>B.Com</option>
+    <option>BBA</option>
+  </select><br><br>
+
+  <label><b>Preferred mode of study:</b></label><br>
+  <input type="checkbox" id="online" name="mode" value="Online">
+  <label for="online">Online</label><br>
+  <input type="checkbox" id="offline" name="mode" value="Offline">
+  <label for="offline">Offline</label><br>
+  <input type="checkbox" id="hybrid" name="mode" value="Hybrid">
+  <label for="hybrid">Hybrid</label><br>
+
+  <h2><i>Other Details</i></h2>
+  <hr align="left" width=20%>
+  <br>
+
+  <label for="photo"><b>Upload your photo:</b></label><br>
+  <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+
+  <label for="doubts"><b>Any Doubts?</b></label><br>
+  <textarea id="doubts" name="doubts" placeholder="Type your questions here..." rows="4" cols="35"></textarea><br><br>
+
+  <div align="center">
+    <button type="submit">Register</button>
+    <button type="reset">Clear</button>
+  </div>
+
+</form>
+
+</body>
+</html>
