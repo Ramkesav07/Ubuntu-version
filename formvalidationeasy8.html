@@ -1,0 +1,109 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        input, textarea {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let pass = document.getElementById("pass").value;
+            let cpass = document.getElementById("cpass").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+
+            let namePattern = /^[A-Za-z]+$/;
+            let emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            let phonePattern = /^[0-9]{10}$/;
+
+            document.getElementById("msg").innerHTML = "";
+
+            if (name == "" || !namePattern.test(name) || name.length < 6)
+                document.getElementById("msg").innerHTML = "Enter valid name (minimum 6 letters)!";
+            else if (pass.length < 6)
+                document.getElementById("msg").innerHTML = "Password must have 6 characters!";
+            else if (pass != cpass)
+                document.getElementById("msg").innerHTML = "Passwords do not match!";
+            else if (!emailPattern.test(email))
+                document.getElementById("msg").innerHTML = "Enter valid email!";
+            else if (!phonePattern.test(phone))
+                document.getElementById("msg").innerHTML = "Enter 10-digit phone number!";
+            else {
+                alert("Registration Successful!");
+                return true;
+            }
+
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Student Registration Form</h2>
+    <hr>
+
+    <form onsubmit="return validateForm()">
+
+        Name:<br>
+        <input type="text" id="name"><br>
+
+        Password:<br>
+        <input type="password" id="pass"><br>
+
+        Confirm Password:<br>
+        <input type="password" id="cpass"><br>
+
+        Email:<br>
+        <input type="text" id="email"><br>
+
+        Phone Number:<br>
+        <input type="text" id="phone"><br>
+
+        Sex:<br>
+        <input type="radio" name="sex" value="Male">Male
+        <input type="radio" name="sex" value="Female">Female
+        <br><br>
+
+        Date of Birth:<br>
+        <input type="text" placeholder="DD-MM-YYYY"><br>
+
+        Languages Known:<br>
+        <input type="checkbox">English
+        <input type="checkbox">Tamil
+        <input type="checkbox">Hindi
+        <br><br>
+
+        Address:<br>
+        <textarea></textarea><br>
+
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <h3 id="msg" class="error"></h3>
+
+</body>
+</html>
+```
